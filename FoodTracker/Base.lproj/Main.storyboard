@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -15,11 +16,11 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" horizontalHuggingPriority="251" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Wxk-lk-rpe">
-                                <rect key="frame" x="16" y="80" width="288" height="105"/>
+                                <rect key="frame" x="20" y="80" width="560" height="437"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V1G-0m-TIj">
                                         <rect key="frame" x="0.0" y="0.0" width="87" height="21"/>
@@ -28,7 +29,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" placeholderIntrinsicWidth="560" placeholderIntrinsicHeight="30" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter meal name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DAY-eH-yfd">
-                                        <rect key="frame" x="0.0" y="33" width="288" height="30"/>
+                                        <rect key="frame" x="0.0" y="33" width="560" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                                     </textField>
@@ -39,6 +40,12 @@
                                             <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q8L-Io-Btn"/>
                                         </connections>
                                     </button>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" translatesAutoresizingMaskIntoConstraints="NO" id="ucS-fd-l8c">
+                                        <rect key="frame" x="0.0" y="117" width="320" height="320"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ucS-fd-l8c" secondAttribute="height" multiplier="1:1" id="TT9-VB-25D"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="DAY-eH-yfd" secondAttribute="trailing" id="BRa-Ld-9V4"/>
@@ -53,7 +60,6 @@
                             <constraint firstItem="Wxk-lk-rpe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="u2N-Lh-lGx"/>
                         </constraints>
                     </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="mealNameLabel" destination="V1G-0m-TIj" id="oh1-sj-ed4"/>
                         <outlet property="nameTextField" destination="DAY-eH-yfd" id="dXa-iX-Re2"/>
