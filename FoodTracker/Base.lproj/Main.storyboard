@@ -40,7 +40,7 @@
                                             <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="q8L-Io-Btn"/>
                                         </connections>
                                     </button>
-                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" translatesAutoresizingMaskIntoConstraints="NO" id="ucS-fd-l8c">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="ucS-fd-l8c">
                                         <rect key="frame" x="0.0" y="117" width="320" height="320"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ucS-fd-l8c" secondAttribute="height" multiplier="1:1" id="TT9-VB-25D"/>
@@ -70,4 +70,7 @@
             <point key="canvasLocation" x="345" y="285"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultPhoto" width="540" height="540"/>
+    </resources>
 </document>
