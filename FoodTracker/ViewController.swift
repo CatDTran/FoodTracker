@@ -16,21 +16,40 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // decleare this class as delegate for TextField
-        nameTextField.delegate = self//"self" refer to this ViewController class
+        nameTextField.delegate = self// decleare this class as delegate for TextField; "self" refer to this ViewController class
     }
+    
     // MARK: UITextFieldDelegate
     func textFieldShouldReturn(textField : UITextField) -> Bool{
-        //Resign from first responder status; hide keyboard
-        textField.resignFirstResponder()
+        textField.resignFirstResponder()//Resign from first responder status; hide keyboard
         return true
     }
     //This method is called after textFieldShouldReturn() method
     func textFieldDidEndEditing(textField: UITextField) {
         mealNameLabel.text = textField.text
     }
+    
+    // MARK: UIImagePickerControllerDelegate
+    //called when user hit Cancel image picker's button
+    func imagePickerControllerDidCancel(picker : UIImagePickerController){
+        dismissViewControllerAnimated(true, completion : nil)
+    }
+    //called after user picks an image
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]){
+        let selectedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        photoImageView.image = selectedImage
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     // MARK: Actions
     @IBAction func selectImageFromPhotoLibrary(sender: UITapGestureRecognizer) {
+        nameTextField.resignFirstResponder()//ensure that keyboard from TextField dismiss when ImageView is tapped
+        let imagePickerController = UIImagePickerController()//UIImagePickerController is a view controller that lets user pick image from their library
+        //The type of "UIImagePickerController.sourceType" is a "UIImagePickerControllerSourceType";
+        //.PhotoLibrary shorthanded for "UIImagePickerControllerSourceType.PhotoLibrary"
+        imagePickerController.sourceType = .PhotoLibrary
+        imagePickerController.delegate = self//set this ViewController as delegate
+        presentViewController(imagePickerController, animated: true,completion: nil)
     }
     @IBAction func setDefaultLabelText(sender: UIButton) {
         mealNameLabel.text = "Default Text"
