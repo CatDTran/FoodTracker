@@ -10,7 +10,11 @@ import UIKit
 
 class RatingControl: UIView {
     //MARK: Properties
-    var rating = 0
+    var rating = 0{
+        didSet{//this is a properties obesever; it's called immediately after a property's value is changed
+            //setNeedsLayout()//this callback triggers a layout update
+        }
+    }
     var ratingButtons = [UIButton]()//and array of buttons
     let spacing = 5
     let starCount = 5
@@ -18,14 +22,14 @@ class RatingControl: UIView {
     //MARK: Initilization
     required init?(coder aDecoder: NSCoder) {//implementation of initializer is required by UIView superclass
         super.init(coder : aDecoder)
-        let emptyStarImage = UIImage(named: "emptyStar")
+        let emptyStarImage = UIImage(named: "emptyStar")//the name string is used to reference image in Assets.xcassets folder
         let filledStarImage = UIImage(named: "filledStar")
         for _ in 0..<starCount
         {
             let button = UIButton()
-            button.setImage(emptyStarImage, forState: .Normal)
-            button.setImage(filledStarImage, forState: .Selected)
-            button.setImage(filledStarImage, forState: [.Highlighted, .Selected])
+            button.setImage(emptyStarImage, forState: UIControlState.Normal)//set emptyStarImage when button is not pressed
+            button.setImage(filledStarImage, forState: UIControlState.Selected)//set filledStarImage when button is selected
+            button.setImage(filledStarImage, forState: [.Highlighted, .Selected])//set filledStarImage when button is being pressed
             button.adjustsImageWhenHighlighted = false
             button.addTarget(self, action: #selector(RatingControl.ratingButtonTapped(_:)), forControlEvents: UIControlEvents.TouchDown)
             ratingButtons += [button]//add button to the array
@@ -40,6 +44,7 @@ class RatingControl: UIView {
             buttonFrame.origin.x = CGFloat( index * (buttonSize + spacing))
             button.frame = buttonFrame
         }
+        updateButtonSelectionStates()//it's important to update stars' states when the view loads
     }
     override func intrinsicContentSize() -> CGSize {
         let buttonSize = Int(frame.size.height)
@@ -49,6 +54,14 @@ class RatingControl: UIView {
     
     //MARK: Button Action
     func ratingButtonTapped(button: UIButton){
-        print("Button pressed ")
+        rating = ratingButtons.indexOf(button)! + 1
+        updateButtonSelectionStates()//update stars' states when a star is tapped
+    }
+    
+    func updateButtonSelectionStates(){
+        for (index, button) in ratingButtons.enumerate()
+        {
+            button.selected = index < rating//star should be in selected state (filledStarImage) if the rating is higher than its index
+        }
     }
 }
