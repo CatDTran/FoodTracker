@@ -53,11 +53,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePickerController.delegate = self//set this ViewController as delegate
         presentViewController(imagePickerController, animated: true,completion: nil)
-    }
-    //Get called when user tap Set Default Text button
-    @IBAction func setDefaultLabelText(sender: UIButton) {
-        mealNameLabel.text = "Default Text"
-    }
-    
+    }    
 }
 
