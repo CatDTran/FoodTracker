@@ -53,6 +53,6 @@ class ViewController: UIViewController, UITextFieldDelegate, UIImagePickerContro
         imagePickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         imagePickerController.delegate = self//set this ViewController as delegate
         presentViewController(imagePickerController, animated: true,completion: nil)
-    }    
+    }
 }
 
