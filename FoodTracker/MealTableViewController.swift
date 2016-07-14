@@ -29,7 +29,7 @@ class MealTableViewController: UITableViewController {
         
         let photo3 = UIImage(named: "meal3")!
         let meal3 = Meal(name: "Pasta with Meatballs", photo: photo3, rating: 3)!
-        meals += [meal1, meal2, meal3]
+        meals += [meal1, meal2, meal3]//add initialized Meal objects to the array
         
     }
 
@@ -41,24 +41,24 @@ class MealTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return meals.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        let cellIdentifier = "MealTableViewCell"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MealTableViewCell
+        let meal = meals[indexPath.row]
+        cell.nameLabel.text = meal.name
+        cell.photoImageView.image = meal.photo
+        cell.ratingControl.rating = meal.rating
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
