@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="gPJ-y9-4cF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="aYc-B4-i13">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,7 +17,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" indentationWidth="10" reuseIdentifier="MealTableViewCell" rowHeight="90" id="HSC-Ig-ttg" customClass="MealTableViewCell" customModule="FoodTracker" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="90"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HSC-Ig-ttg" id="WLC-F3-Oyx">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="89"/>
@@ -50,10 +50,11 @@
                             <outlet property="delegate" destination="gPJ-y9-4cF" id="01c-W9-PvK"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" id="U6C-BV-pvK"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lu9-r8-HSR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-316" y="217"/>
+            <point key="canvasLocation" x="496" y="217"/>
         </scene>
         <!--Meal View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -118,7 +119,25 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="345" y="285"/>
+            <point key="canvasLocation" x="1157" y="285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="XkR-FS-uz3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aYc-B4-i13" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="YNq-2N-3t0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="gPJ-y9-4cF" kind="relationship" relationship="rootViewController" id="rOh-AH-DYL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QyP-v3-ZZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-316" y="217"/>
         </scene>
     </scenes>
     <resources>
