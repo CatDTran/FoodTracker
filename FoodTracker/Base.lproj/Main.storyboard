@@ -51,12 +51,16 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your Meals" id="U6C-BV-pvK">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UiC-Kb-iA7"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UiC-Kb-iA7">
+                            <connections>
+                                <segue destination="BYZ-38-t0r" kind="show" id="ECp-0X-xri"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lu9-r8-HSR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="496" y="217"/>
+            <point key="canvasLocation" x="504" y="293"/>
         </scene>
         <!--Meal View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -139,7 +143,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyP-v3-ZZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-316" y="217"/>
+            <point key="canvasLocation" x="-314" y="293"/>
         </scene>
     </scenes>
     <resources>
