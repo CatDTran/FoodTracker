@@ -53,7 +53,7 @@
                     <navigationItem key="navigationItem" title="Your Meals" id="U6C-BV-pvK">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="UiC-Kb-iA7">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" id="ECp-0X-xri"/>
+                                <segue destination="u5d-BL-flq" kind="presentation" identifier="AddItem" id="ECp-0X-xri"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -62,7 +62,7 @@
             </objects>
             <point key="canvasLocation" x="504" y="293"/>
         </scene>
-        <!--Meal View Controller-->
+        <!--New Meal-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MealViewController" customModule="FoodTracker" customModuleProvider="target" sceneMemberID="viewController">
@@ -106,10 +106,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Wxk-lk-rpe" secondAttribute="trailing" id="cid-KV-SU1"/>
-                            <constraint firstItem="Wxk-lk-rpe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="ieI-2E-3sw"/>
+                            <constraint firstItem="Wxk-lk-rpe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="ieI-2E-3sw"/>
                             <constraint firstItem="Wxk-lk-rpe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="u2N-Lh-lGx"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="New Meal" id="UTe-84-c6N">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uO5-uX-PZr"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tPC-gO-ph5"/>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
@@ -125,7 +129,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1157" y="285"/>
+            <point key="canvasLocation" x="1969" y="285"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="XkR-FS-uz3">
@@ -144,6 +148,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QyP-v3-ZZa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-314" y="293"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="0v8-mS-KEO">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="u5d-BL-flq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kL7-Lj-aFv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="4cz-wS-l6W"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aIh-Lw-54l" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1157" y="285"/>
         </scene>
     </scenes>
     <resources>
