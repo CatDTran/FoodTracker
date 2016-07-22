@@ -111,7 +111,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="UTe-84-c6N">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uO5-uX-PZr"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uO5-uX-PZr">
+                            <connections>
+                                <action selector="cancel:" destination="BYZ-38-t0r" id="5XN-8D-uGR"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="tPC-gO-ph5">
                             <connections>
                                 <segue destination="76n-Xm-Rz6" kind="unwind" unwindAction="unwindToMealList:" id="eeM-4c-X6W"/>
@@ -121,6 +125,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="cancel" destination="uO5-uX-PZr" id="rUX-fR-dnM"/>
                         <outlet property="nameTextField" destination="DAY-eH-yfd" id="dXa-iX-Re2"/>
                         <outlet property="photoImageView" destination="ucS-fd-l8c" id="0A6-Wu-LSY"/>
                         <outlet property="ratingControl" destination="Th6-hK-5om" id="djQ-9G-ZTm"/>

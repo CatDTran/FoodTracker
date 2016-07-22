@@ -56,7 +56,11 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     //MARK: Navigation
-    //
+    @IBAction func cancel(sender: AnyObject) {
+        dismissViewControllerAnimated(true, completion: nil)//dismiss MealViewController
+    }
+    
+    //called when user tap Save button
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if sender === saveButton{
             let name = nameTextField.text ?? "" //return a string value, if nill return the dafault string which is an empty string ""
