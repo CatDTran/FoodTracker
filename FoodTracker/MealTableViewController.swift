@@ -59,7 +59,15 @@ class MealTableViewController: UITableViewController {
         return cell
     }
     
-
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue){
+        //this is 2 checks in when if condition: segue's sourceViewController must be MealViewController AND MealViewController's meal must not be nil for this condition to pass
+        if let sourceViewController = sender.sourceViewController as? MealViewController, meal = sourceViewController.meal{
+            //add new meal to list if condition is true
+            let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
+            meals.append(meal)//append meal to meals list
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)//add a row for meal to tableView
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
