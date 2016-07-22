@@ -20,6 +20,7 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self// decleare this class as delegate for TextField; "self" refer to this ViewController class
+        checkValidMealName()//make sure to disable Save button until user enter a valid text in TextField
     }
     
     // MARK:*******UITextFieldDelegate*******
@@ -28,8 +29,18 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
         textField.resignFirstResponder()//Resign from first responder status; hide keyboard
         return true
     }
+    //called when user begin editing TextField
+    func textFieldDidBeginEditing(textField: UITextField) {
+        saveButton.enabled = false
+    }
+    func checkValidMealName(){//helper method to check for valid text in text field
+        let text = nameTextField.text ?? ""
+        saveButton.enabled = !text.isEmpty
+    }
     //This method is called after textFieldShouldReturn() method
     func textFieldDidEndEditing(textField: UITextField) {
+        checkValidMealName()
+        navigationItem.title = textField.text//replace navigation bar's title with the meal's name after user done with editing text field
     }
     
     // MARK:*******UIImagePickerControllerDelegate*******
