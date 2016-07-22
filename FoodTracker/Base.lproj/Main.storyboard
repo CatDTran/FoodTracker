@@ -112,7 +112,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="New Meal" id="UTe-84-c6N">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="uO5-uX-PZr"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tPC-gO-ph5"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="tPC-gO-ph5">
+                            <connections>
+                                <segue destination="76n-Xm-Rz6" kind="unwind" unwindAction="unwindToMealList:" id="eeM-4c-X6W"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
@@ -124,6 +128,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="76n-Xm-Rz6" userLabel="Exit" sceneMemberID="exit"/>
                 <tapGestureRecognizer id="OLL-8w-zIL">
                     <connections>
                         <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="q1j-QX-zU7"/>

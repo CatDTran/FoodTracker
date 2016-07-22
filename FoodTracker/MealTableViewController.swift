@@ -65,7 +65,7 @@ class MealTableViewController: UITableViewController {
             //add new meal to list if condition is true
             let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
             meals.append(meal)//append meal to meals list
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)//add a row for meal to tableView
+            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)//add a row for meal to tableView ("tableView: UITableView!" is declared property in UITableViewController)
         }
     }
     /*
