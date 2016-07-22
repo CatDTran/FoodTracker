@@ -56,8 +56,8 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     }
     
     //MARK: Navigation
-    @IBAction func cancel(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)//dismiss MealViewController
+    @IBAction func cancel(sender: UIBarButtonItem) {
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     //called when user tap Save button
