@@ -20,6 +20,13 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     override func viewDidLoad() {
         super.viewDidLoad()
         nameTextField.delegate = self// decleare this class as delegate for TextField; "self" refer to this ViewController class
+        if let meal = meal //this condition pass on if meal is not nil which means this MealViewController is presented by the "ShowDetail" segue
+        {
+            navigationItem.title = meal.name //"navigationItem" is a declared property of UIViewController
+            nameTextField.text = meal.name
+            photoImageView.image = meal.photo
+            ratingControl.rating = meal.rating
+        }
         checkValidMealName()//make sure to disable Save button until user enter a valid text in TextField
     }
     
