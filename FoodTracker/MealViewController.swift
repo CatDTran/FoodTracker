@@ -64,7 +64,15 @@ class MealViewController: UIViewController, UITextFieldDelegate, UIImagePickerCo
     
     //MARK: Navigation
     @IBAction func cancel(sender: UIBarButtonItem) {
-        dismissViewControllerAnimated(true, completion: nil)
+        let isPresentInAddMealMode = presentingViewController is UINavigationController //whether or not the presentingViewController is type of UINavigationController
+        if isPresentInAddMealMode //for adding meal case
+        {
+            dismissViewControllerAnimated(true, completion: nil)
+        }
+        else //for editing meal case
+        {
+            navigationController!.popViewControllerAnimated(true)
+        }
     }
     
     //called when user tap Save button
