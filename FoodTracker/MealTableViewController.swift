@@ -62,10 +62,17 @@ class MealTableViewController: UITableViewController {
     @IBAction func unwindToMealList(sender: UIStoryboardSegue){
         //this is 2 checks in when if condition: segue's sourceViewController must be MealViewController AND MealViewController's meal must not be nil for this condition to pass
         if let sourceViewController = sender.sourceViewController as? MealViewController, meal = sourceViewController.meal{
-            //add new meal to list if condition is true
-            let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
-            meals.append(meal)//append meal to meals list
-            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)//add a row for meal to tableView ("tableView: UITableView!" is declared property in UITableViewController)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow//if this condition pass, it means user clicked on an existing row for editing
+            {
+                meals[selectedIndexPath.row] = meal//replace the existing meal
+                tableView.reloadRowsAtIndexPaths([selectedIndexPath], withRowAnimation: .None)//reload view
+            }
+            else//add new meal to list if condition is false
+            {
+                let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
+                meals.append(meal)//append meal to meals list
+                tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)//add a row for meal to tableView ("tableView: UITableView!" is declared property in UITableViewController)
+            }
         }
     }
     /*
