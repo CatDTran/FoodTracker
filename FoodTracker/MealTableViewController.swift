@@ -16,8 +16,14 @@ class MealTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.leftBarButtonItem = editButtonItem() //adding Edit button to the left of navigation bar
-
-        loadSampleMeals()//called to load sample meals data
+        if let savedMeals = loadMeals() //load saved meal
+        {
+            meals += savedMeals
+        }
+        else    //if there is no saved meals; load sample meals
+        {
+            loadSampleMeals()//called to load sample meals data
+        }
     }
     
     //Helper method to load sample meals data
@@ -74,6 +80,7 @@ class MealTableViewController: UITableViewController {
                 meals.append(meal)//append meal to meals list
                 tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)//add a row for meal to tableView ("tableView: UITableView!" is declared property in UITableViewController)
             }
+            saveMeals()//save meals to disc after user add or edit a meal
         }
     }
     
@@ -93,7 +100,8 @@ class MealTableViewController: UITableViewController {
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
+        saveMeals()//save meals to disc after user delete a meal
     }
     
 
@@ -131,5 +139,15 @@ class MealTableViewController: UITableViewController {
         
     }
     
-
+    //MARK: NSCoding
+    func saveMeals(){
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(meals, toFile: Meal.ArchiveURL.path!)
+        if !isSuccessfulSave
+        {
+            print("Failed to save meals...")
+        }
+    }
+    func loadMeals()-> [Meal]?{ //optional return type. May return a Meal array or nil if not Meal is avaialble
+        return NSKeyedUnarchiver.unarchiveObjectWithFile(Meal.ArchiveURL.path!) as? [Meal]//unarchive stored Meal array (if available) and downcast it to [Meal]
+    }
 }
